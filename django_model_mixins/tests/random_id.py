@@ -1,8 +1,4 @@
-from boot_django import boot_django
 from model_mixin_test import ModelMixinTestCase
-
-boot_django()
-
 from django_model_mixins.mixins import RandomIDMixin
 
 
