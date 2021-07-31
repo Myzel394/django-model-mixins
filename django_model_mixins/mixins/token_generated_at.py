@@ -45,4 +45,3 @@ class TokenGeneratedAtMixin(TokenMixin):
         """Generate a new token and set it."""
         super()._create_token()
         self.token_generated = timezone.now()
-

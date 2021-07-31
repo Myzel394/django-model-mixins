@@ -56,6 +56,7 @@ class TokenMixin(models.Model):
         self.save()
 
     def save(self, *args, **kwargs):
+        """Create a token if necessary and allowed."""
         if self.token == "" and self.CREATE_ON_CREATION:
             self._create_token()
 
