@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-current_version = "0.0.2"
+current_version = "0.0.1"
 download_url = f"https://github.com/Myzel394/django-model-mixins/archieve/v_" \
                f"{current_version}.tar.gz"
 
