@@ -1,0 +1,28 @@
+name: Publish package to PyPI
+
+on:
+    - release
+
+
+jobs:
+    check_code_quality:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v2
+            -   name: Cache dependency
+                uses: actions/cache@v2
+                with:
+                    path: ~/.cache/pip
+                    key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+                    restore-keys: |
+                        ${{ runner.os }}-pip-
+            -   uses: actions/setup-python@v2
+                with:
+                    python-version: "3.x"
+            -   name: Build binary wheel and a source tarball
+                run: python setup.py sdist
+            -   name: Publish distribution to Test PyPI
+                uses: pypa/gh-action-pypi-publish@master
+                with:
+                    password: ${{ secrets.PYPI_TOKEN }}
+                    repository_url: https://test.pypi.org/legacy/
