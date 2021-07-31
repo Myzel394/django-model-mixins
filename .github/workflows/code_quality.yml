@@ -1,0 +1,25 @@
+name: Code Quality Check
+
+on:
+    - push
+
+
+jobs:
+    check_code_quality:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v2
+            -   name: Cache dependency
+                uses: actions/cache@v2
+                with:
+                    path: ~/.cache/pip
+                    key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+                    restore-keys: |
+                        ${{ runner.os }}-pip-
+            -   uses: actions/setup-python@v2
+                with:
+                    python-version: "3.x"
+            -   name: Install requirements
+                run: pip install -r requirements.txt
+            -   name: Run Flake8
+                run: flake8
