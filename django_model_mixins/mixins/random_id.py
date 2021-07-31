@@ -38,6 +38,8 @@ class RandomIDMixin(models.Model):
         You can override this function if you want to change the generation.
         This function doesn't set the `id` - it only generates and returns it.
         """
+        assert cls.ID_LENGTH <= ID_MAX_LENGTH, f'`ID_LENGTH` can be at most `{ID_MAX_LENGTH}`.'
+
         # Create an id until it's available
 
         # Because of the fact, that it's very unlikely that an id will be taken already,
