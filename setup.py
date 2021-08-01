@@ -2,7 +2,7 @@ from pathlib import Path
 
 from setuptools import setup, find_packages
 
-current_version = "0.1.1"
+current_version = "0.1.2"
 download_url = f"https://github.com/Myzel394/django-model-mixins/archieve/v_" \
                f"{current_version}.tar.gz"
 
@@ -16,11 +16,6 @@ dev_requires = [
 
 def get_long_description(name: str = "README.md"):
     return Path.cwd().joinpath(name).read_text()
-
-
-def get_install_requires():
-    return Path.cwd().joinpath("requirements.txt").read_text().splitlines()
-
 
 setup(
     name="django-model-mixins",
@@ -42,7 +37,9 @@ setup(
         "Intended Audience :: Developers",
     ],
     keywords=["django", "django-utils", "django-models"],
-    install_requires=get_install_requires(),
+    install_requires=[
+        "django"
+    ],
     extra_require={
         "dev": dev_requires
     }
