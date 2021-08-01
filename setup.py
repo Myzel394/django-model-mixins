@@ -3,7 +3,7 @@ from pathlib import Path
 import pypandoc
 from setuptools import setup, find_packages
 
-current_version = "0.0.6"
+current_version = "0.1.0"
 download_url = f"https://github.com/Myzel394/django-model-mixins/archieve/v_" \
                f"{current_version}.tar.gz"
 
