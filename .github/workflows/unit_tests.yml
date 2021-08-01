@@ -1,4 +1,4 @@
-name: Code Quality Check
+name: Run Unit Tests
 
 on:
     - push
@@ -6,7 +6,7 @@ on:
 
 
 jobs:
-    check_code_quality:
+    unit_test:
         runs-on: ubuntu-latest
         steps:
             -   uses: actions/checkout@v2
