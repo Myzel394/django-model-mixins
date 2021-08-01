@@ -15,7 +15,7 @@ Add `django_model_mixins` to your `INSTALLED_APPS`
 ```python
 INSTALLED_APPS = (
     ...,
-    'VAR_PACKAGE_NAME',
+    'django_model_mixins',
 )
 ```
 
