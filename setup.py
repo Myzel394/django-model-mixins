@@ -3,7 +3,7 @@ from pathlib import Path
 import pypandoc
 from setuptools import setup, find_packages
 
-current_version = "0.0.4"
+current_version = "0.0.5"
 download_url = f"https://github.com/Myzel394/django-model-mixins/archieve/v_" \
                f"{current_version}.tar.gz"
 
@@ -16,10 +16,7 @@ dev_requires = [
 
 
 def get_long_description(name: str = "README.md"):
-    try:
-        return pypandoc.convert(name, "rst")
-    except (IOError, ImportError):
-        return Path.cwd().joinpath(name).read_text()
+    return Path.cwd().joinpath(name).read_text()
 
 
 def get_install_requires():
@@ -34,6 +31,7 @@ setup(
     url="https://github.com/Myzel394/django-model-mixins",
     description="Mixins for Django models.",
     long_description=get_long_description(),
+    long_description_content_type="text/markdown",
     platforms=['OS Independent'],
     license="MIT",
     download_url=download_url,
