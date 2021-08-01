@@ -26,9 +26,9 @@ INSTALLED_APPS = (
 Inherit from mixins in your models, e.g.
 
 ```python
-from django_model_mixins import CreationDateMixin, RandomIDMixin
+from django_model_mixins import mixins
 
-class Article(CreationDateMixin, RandomIDMixin):
+class Article(mixins.CreationDateMixin, mixins.RandomIDMixin):
     # A `created_at` and `id` field is automatically generated on migrations.
     pass
 ```
@@ -38,14 +38,14 @@ Edit settings per model (not per instance!), e.g.
 ```python
 import string
 
-from django_model_mixins import TokenMixin, RandomIDMixin
+from django_model_mixins import mixins
 
-class EmailVerify(TokenMixin, RandomIDMixin):
+class EmailVerify(mixins.TokenMixin, mixins.RandomIDMixin):
     TOKEN_LENGTH = 255
     # Token is 255 chars long for every `EmailVerify`
 
 
-class PasswordReset(TokenMixin, RandomIDMixin):
+class PasswordReset(mixins.TokenMixin, mixins.RandomIDMixin):
     TOKEN_LENGTH = 6
     TOKEN_CHARS = string.digits
     # Token is 6 digits long for every `PasswordReset`.
@@ -79,16 +79,16 @@ The id is cryptographically generated on model creation.
 ##### Examples
 
 ```python
-from django_model_mixins import RandomIDMixin
+from django_model_mixins import mixins
 
-class Article(RandomIDMixin):
+class Article(mixins.RandomIDMixin):
     pass
 ```
 
 ```python
-from django_model_mixins import RandomIDMixin
+from django_model_mixins import mixins
 
-class Profile(RandomIDMixin):
+class Profile(mixins.RandomIDMixin):
     ID_LENGTH = 20
 ```
 
@@ -102,9 +102,9 @@ on model creation.
 ##### Examples
 
 ```python
-from django_model_mixins import CreationDateMixin
+from django_model_mixins import mixins
 
-class Article(CreationDateMixin):
+class Article(mixins.CreationDateMixin):
     pass
 ```
 
@@ -118,9 +118,9 @@ on every model save.
 ##### Examples
 
 ```python
-from django_model_mixins import EditDateMixin
+from django_model_mixins import mixins
 
-class Article(EditDateMixin):
+class Article(mixins.EditDateMixin):
     pass
 ```
 
@@ -147,10 +147,10 @@ The token is generated cryptographically.
 ```python
 import string
 
-from django_model_mixins import TokenMixin
+from django_model_mixins import mixins
 
 
-class PasswordReset(TokenMixin):
+class PasswordReset(mixins.TokenMixin):
     TOKEN_CHARS = string.digits
     TOKEN_LENGTH = 6
 ```
@@ -182,10 +182,10 @@ You **need** to specify a `TOKEN_VALID_DURATION_IN_SECONDS` field per model.
 ```python
 import string
 
-from django_model_mixins import TokenGeneratedAtMixin
+from django_model_mixins import mixins
 
 
-class PasswordReset(TokenGeneratedAtMixin):
+class PasswordReset(mixins.TokenGeneratedAtMixin):
     TOKEN_CHARS = string.digits
     TOKEN_LENGTH = 6
     
