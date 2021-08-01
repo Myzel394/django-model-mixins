@@ -9,8 +9,8 @@ __all__ = [
     "TokenMixin"
 ]
 
-TOKEN_MAX_LENGTH = getattr(settings, "TOKEN_MAX_LENGTH", constants.DEFAULT_RANDOM_ID_MAX_LENGTH)
-TOKEN_CHARS = getattr(settings, "TOKEN_ID_CHARS", constants.DEFAULT_RANDOM_ID_CHARS)
+TOKEN_MAX_LENGTH = getattr(settings, "TOKEN_MAX_LENGTH", constants.DEFAULT_TOKEN_MAX_LENGTH)
+TOKEN_CHARS = getattr(settings, "TOKEN_CHARS", constants.DEFAULT_TOKEN_CHARS)
 CREATE_ON_CREATION = getattr(
     settings, "TOKEN_CREATE_ON_CREATION", constants.TOKEN_CREATE_ON_CREATION
 )
